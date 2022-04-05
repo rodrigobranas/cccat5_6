@@ -6,6 +6,21 @@ export default class ExpressHttp implements Http {
 
 	constructor () {
 		this.app = express();
+
+		this.app.use(express.json());
+
+		// @ts-ignore
+		this.app.all('*', function (req, res, next) {
+			res.header('Access-Control-Allow-Origin', '*');
+			res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+			res.header('Access-Control-Allow-Headers', 'Content-Type, x-access-token, Authorization');
+			next();
+		});
+		
+		// @ts-ignore
+		this.app.options('*', function (req, res, next) {
+			res.end();
+		});
 	}
 	
 	async route(method: string, url: string, callback: any): Promise<any> {

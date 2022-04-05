@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && jest ./dist --runInBand --coverage",
-	"main": "tsc && node ./dist/src/main"
+    "test": "tsc && jest ./dist --runInBand",
+    "main": "tsc && node ./dist/src/main"
   },
   "keywords": [],
   "author": "",

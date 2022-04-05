@@ -14,8 +14,8 @@ beforeEach(function () {
 
 test("Deve validar um cupom de desconto", async function () {
 	const validateCoupon = new ValidateCoupon(couponRepository);
-	const isValid = await validateCoupon.execute("VALE20");
-	expect(isValid).toBeTruthy();
+	const output = await validateCoupon.execute("VALE20");
+	expect(output.isExpired).toBeFalsy();
 });
 
 afterEach(async function () {
